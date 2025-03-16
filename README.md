@@ -1,5 +1,7 @@
 ![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
 
+https://www.npmjs.com/package/n8n-nodes-sshv2
+
 # n8n-nodes-sshv2
 
 This package provides enhanced SSH functionality for n8n, including an AI-powered SSH tool node.
@@ -40,7 +42,6 @@ To use the Hadidiz-AI node with the AI Agent, you need to:
 
 1. Set the following environment variables:
 ```bash
-export N8N_CUSTOM_EXTENSIONS=/path/to/custom/nodes
 export N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
 ```
 
@@ -64,3 +65,7 @@ Both nodes support dynamic parameters, allowing you to:
 ## License
 
 [MIT](LICENSE.md)
+
+## Credits
+
+By Hadidizflow.com Your AI Solutions Partner.

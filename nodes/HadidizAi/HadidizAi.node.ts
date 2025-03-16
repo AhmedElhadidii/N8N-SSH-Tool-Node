@@ -6,7 +6,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { BINARY_ENCODING, NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import { BINARY_ENCODING, NodeOperationError } from 'n8n-workflow';
 import type { Config } from 'node-ssh';
 import { NodeSSH } from 'node-ssh';
 import type { Readable } from 'stream';
@@ -78,11 +78,11 @@ export class HadidizAi implements INodeType {
 			},
 			alias: ['ssh', 'terminal', 'remote', 'command', 'hadidiz', 'ai'],
 		},
-		inputs: [NodeConnectionType.Main],  // Changed from empty to Main for standard node format
-		outputs: [NodeConnectionType.Main],
+		inputs: ['main'],
+		outputs: ['main'],
 		credentials: [
 			{
-				name: 'sshPassword',
+				name: 'sshPasswordApi',
 				required: false,
 				displayOptions: {
 					show: {
@@ -92,7 +92,7 @@ export class HadidizAi implements INodeType {
 				},
 			},
 			{
-				name: 'sshPrivateKey',
+				name: 'sshPrivateKeyApi',
 				required: false,
 				displayOptions: {
 					show: {
@@ -490,7 +490,7 @@ export class HadidizAi implements INodeType {
 			
 			if (connectionType === 'credentials') {
 				if (authentication === 'password') {
-					const credentials = await this.getCredentials('sshPassword');
+					const credentials = await this.getCredentials('sshPasswordApi');
 					connectionOptions = {
 						host: credentials.host as string,
 						username: credentials.username as string,
@@ -498,7 +498,7 @@ export class HadidizAi implements INodeType {
 						password: credentials.password as string,
 					};
 				} else {
-					const credentials = await this.getCredentials('sshPrivateKey');
+					const credentials = await this.getCredentials('sshPrivateKeyApi');
 					connectionOptions = {
 						host: credentials.host as string,
 						username: credentials.username as string,

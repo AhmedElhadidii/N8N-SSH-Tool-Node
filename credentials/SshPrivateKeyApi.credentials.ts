@@ -1,11 +1,11 @@
 import type { ICredentialType, INodeProperties } from 'n8n-workflow';
 
-export class SshPassword implements ICredentialType {
-        name = 'sshPassword';
+export class SshPrivateKeyApi implements ICredentialType {
+        name = 'sshPrivateKeyApi';
 
-        displayName = 'SSH Password';
+        displayName = 'SSH Private Key';
 
-        documentationUrl = 'ssh';
+        documentationUrl = 'https://docs.n8n.io/integrations/builtin/credentials/ssh/';
 
         properties: INodeProperties[] = [
                 {
@@ -30,13 +30,22 @@ export class SshPassword implements ICredentialType {
                         default: '',
                 },
                 {
-                        displayName: 'Password',
-                        name: 'password',
+                        displayName: 'Private Key',
+                        name: 'privateKey',
                         type: 'string',
                         typeOptions: {
+                                rows: 4,
                                 password: true,
                         },
                         default: '',
+                },
+                {
+                        displayName: 'Passphrase',
+                        name: 'passphrase',
+                        type: 'string',
+                        default: '',
+                        description: 'Passphase used to create the key, if no passphase was used leave empty',
+                        typeOptions: { password: true },
                 },
         ];
 } 

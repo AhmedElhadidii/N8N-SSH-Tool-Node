@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-sshv2",
-  "version": "0.1.0",
-  "description": "n8n node for SSH operations including command execution, file uploads, and downloads by Hadidiz, HadidizFlow",
+  "version": "0.1.12",
+  "description": "2 N8N ( Node & AI Agent Tool) for SSH operations Dynamically Configurable parameters NO credentials, including command execution, file uploads, and downloads by Hadidiz, HadidizFlow",
   "keywords": [
     "n8n-community-node-package",
     "ssh",
@@ -13,7 +13,7 @@
   "homepage": "",
   "author": {
     "name": "Ahmed El-Hadidi",
-    "email": ""
+    "email": "ahmed.1elhadidi@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -40,12 +40,12 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/SshPassword.credentials.js",
-      "dist/credentials/SshPrivateKey.credentials.js"
+      "dist/credentials/SshPasswordApi.credentials.js",
+      "dist/credentials/SshPrivateKeyApi.credentials.js"
     ],
     "nodes": [
       "dist/nodes/Sshv2/Sshv2.node.js",
-      "dist/nodes/SshTool/HadidizAi.node.js"
+      "dist/nodes/HadidizAi/HadidizAi.node.js"
     ]
   },
   "devDependencies": {
