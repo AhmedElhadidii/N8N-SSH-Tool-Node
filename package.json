@@ -1,19 +1,23 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-sshv2",
   "version": "0.1.0",
-  "description": "",
+  "description": "n8n node for SSH operations including command execution, file uploads, and downloads by Hadidiz, HadidizFlow",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "ssh",
+    "scp",
+    "sftp",
+    "ai-tools"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
+    "name": "Ahmed El-Hadidi",
     "email": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/ahmedElhadidii/n8n-nodes-sshv2.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -36,21 +40,26 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/SshPassword.credentials.js",
+      "dist/credentials/SshPrivateKey.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/Sshv2/Sshv2.node.js",
+      "dist/nodes/SshTool/HadidizAi.node.js"
     ]
   },
   "devDependencies": {
+    "@types/node": "^22.13.10",
     "@typescript-eslint/parser": "^7.15.0",
     "eslint": "^8.56.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
     "gulp": "^4.0.2",
     "prettier": "^3.3.2",
     "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "node-ssh": "^13.1.0",
+    "tmp-promise": "^3.0.3"
   },
   "peerDependencies": {
     "n8n-workflow": "*"

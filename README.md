@@ -1,46 +1,66 @@
 ![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
 
-# n8n-nodes-starter
+# n8n-nodes-sshv2
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+This package provides enhanced SSH functionality for n8n, including an AI-powered SSH tool node.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+## Features
 
-## Prerequisites
+### 1. Hadidiz-AI Node
+An AI-powered SSH tool that can be used with n8n's AI Agent for:
+- Executing remote commands
+- Downloading files
+- Uploading files
+- Dynamic connection parameters
+- Support for both password and private key authentication
 
-You need the following installed on your development machine:
+### 2. SSHv2 Node
+A standard SSH node with enhanced capabilities for:
+- Command execution
+- File transfers
+- Credential management
+- Dynamic parameters
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 18. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  pnpm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+## Installation
 
-## Using this starter
+### Local Installation
+```bash
+npm install n8n-nodes-sshv2
+```
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+### n8n.cloud Installation
+1. Go to Settings > Community Nodes
+2. Select "Install"
+3. Enter `n8n-nodes-sshv2`
+4. Click "Install"
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `pnpm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `pnpm lint` to check for errors or `pnpm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+## Usage with AI Agent
 
-## More information
+To use the Hadidiz-AI node with the AI Agent, you need to:
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+1. Set the following environment variables:
+```bash
+export N8N_CUSTOM_EXTENSIONS=/path/to/custom/nodes
+export N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+```
+
+2. Add the AI Agent node to your workflow
+3. Select "Tools Agent" as the agent type
+4. Add "Hadidiz-AI" from the available tools
+
+## Configuration
+
+### SSH Credentials
+The package supports two types of authentication:
+- Password-based authentication
+- Private key authentication
+
+### Dynamic Parameters
+Both nodes support dynamic parameters, allowing you to:
+- Use different servers in the same workflow
+- Pass credentials from previous nodes
+- Use environment variables
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+[MIT](LICENSE.md)
